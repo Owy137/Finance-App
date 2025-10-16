@@ -9,12 +9,13 @@ totalBalance = 0.0
 poppler_path_bin = r"C:/Users/owyya/OneDrive/Documents/poppler-25.07.0/Library/bin"
 
 files = os.listdir(subdir)
+print(files)
 for file in files:
     ###convert pdf to image if pdf
     if(".pdf" in file):
         images = convert_from_path(subdir+file, dpi=300, poppler_path=poppler_path_bin)
-        for i, img in enumerate(images):
-            img.save(f"assets/test{i+1}.png", "PNG")
+        """for i, img in enumerate(images):
+            img.save(f"assets/{file.strip(".pdf")}.png", "PNG")"""
         result = engine(subdir+file.replace(".pdf", ".png"))
     else:
         result = engine(subdir+file)
