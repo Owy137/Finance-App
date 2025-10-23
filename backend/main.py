@@ -1,5 +1,6 @@
 from rapidocr import RapidOCR
 from pdf2image import convert_from_path
+import config
 import os
 import re
 
@@ -9,7 +10,7 @@ subdir = "./statements/"
 totalBalance = 0.0
 curBalance = 0.0
 stringCheck = ("newbalance", "closingbalance")
-poppler_path_bin = r"C:/Users/owyya/OneDrive/Documents/poppler-25.07.0/Library/bin"
+poppler_path_bin = config.path
 
 def read_pdf(filepath):
     images = convert_from_path(filepath, dpi=300, poppler_path=poppler_path_bin)
