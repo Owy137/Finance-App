@@ -1,4 +1,4 @@
-import './buttons.css'
+import './styling/buttons.css'
 
 function Delete ({setData}){
 

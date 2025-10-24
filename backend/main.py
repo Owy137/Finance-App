@@ -91,6 +91,7 @@ def process_file():
                     minpay = float(re.search(r"\d*\.\d*", result.txts[i+1].replace(",", "")).group())
                     print(minpay)
                     res["minimum"] = minpay
+        
         return res
 
     balances = []
@@ -105,7 +106,9 @@ def process_file():
         filepath = f"./statements/{file.filename}"
         file.save(filepath)
         #reads balance from each file and adds a dictionary to balances
-        balances.append(read_balance(filepath, file.filename))
+        stmtbal = read_balance(filepath, file.filename)
+        balances.append(stmtbal)
+        #remove png files
     for file in os.listdir(subdir):
         if (".png" in file):
             os.remove(subdir+file)

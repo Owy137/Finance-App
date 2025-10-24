@@ -3,27 +3,27 @@ import { createRoot } from 'react-dom/client'
 import Row from './Row.jsx'
 import UploadButton from './UploadButton.jsx'
 import Delete from './Delete.jsx'
-import './buttons.css'
+import Bubble from './Bubble.jsx'
+import './styling/buttons.css'
 
 function App(){
-
-    const[totalBalance, setTotalBalance] = useState();
-    const[data, setData] = useState();
+    const[data, setData] = useState(null);
     const[selections, setSelections] = useState({});
+
+    var minBalance = 0;
+    var totBalance = 0;
 
     const changeSelection = (index, amount) => {
         console.log("App: ",index, amount);
         setSelections((prev) => ({ ...prev, [index]:amount,}));
     }
 
-
-    
     useEffect(() => {
         console.log(selections);
     }, [selections]);
 
     return(
-        <>
+        <div className="App">
             <div className="ButtonRow">
                 <UploadButton setData={setData}/>
                 <Delete setData = {setData}/>
@@ -40,14 +40,21 @@ function App(){
                 </thead>
                 <tbody>
                     {data?.balances.map ((balance, index) => {
+                        minBalance += balance.minimum;
+                        totBalance += balance.balance;
                         return <Row 
                             balance={balance} 
                             index={index}
                             changeSelection={changeSelection}/>;
-                    })}
+                        })}
                 </tbody>
             </table>
-        </>
+            {data && <Bubble 
+                total={Math.round(totBalance*100)/100}
+                min={Math.round(minBalance*100)/100}
+                selections={selections}
+            />}
+        </div>
     );
 }
 
