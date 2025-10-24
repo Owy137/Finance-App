@@ -4,6 +4,7 @@
   padding:20px;
   background-color:aqua;
   border-radius: 20px;
+  color:black;
 }
 
 .upload_file_button:hover {

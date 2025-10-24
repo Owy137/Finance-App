@@ -1,4 +1,54 @@
-th{
-    margin: 20px;
-    padding: 20px;
+.uploadTable{
+    border: 2px solid white;
+    border-radius:15px;
+    /* allow spacing between rows */
+    border-collapse: separate;
+    border-spacing: 0 10px; /* horizontal vertical - here only vertical spacing */
+    width: 100vw;
+    color:black;
+    background-color:blue;
+}
+
+.uploadTable thead tbody{
+
+}
+
+.uploadtableHead tr{
+    /* don't use margin on tr (not supported) - selector kept for compatibility */
+}
+
+.uploadTable th,
+.uploadTable td{
+    padding: 12px 10px; /* space inside cells */
+    background: transparent; /* keep gaps visible between rows */
+    text-align: center; /* center text horizontally */
+    vertical-align: middle; /* center content vertically */
+}
+
+/* give each row a rounded card-like look by rounding first/last cells */
+.uploadtableBody{
+    padding: 0; /* keep rule non-empty to satisfy linters; adjust if needed */
+}
+
+/* Round the left/right corners of each row's cells so border-radius on the table
+   visually applies to each row when using border-spacing */
+.uploadTable tbody tr td:first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.uploadTable tbody tr td:last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Optional: if you want the header to sit without gaps, keep thead separate */
+.uploadTable thead th{
+    background: transparent;
+}
+
+/* Make row gaps visible: give body cells a background (customize as needed) */
+.uploadTable tbody td{
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    color:black;
 }
