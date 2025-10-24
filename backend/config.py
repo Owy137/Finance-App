@@ -1,1 +1,0 @@
-path = "C:/Users/owyya/OneDrive/Documents/poppler-25.07.0/Library/bin"
