@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import UploadButton from './Button.jsx'
+import UploadButton from './UploadButton.jsx'
 import './Table.css'
 
 function FileTable({data, totalBalance, setTotalBalance}) {
-    console.log(data);
     return(
         <table className="uploadTable">
             <thead>
@@ -16,20 +15,17 @@ function FileTable({data, totalBalance, setTotalBalance}) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                     <td>Test File 1</td>
-                    <td>1234</td>
-                    <td>34</td>
-                    <td><input type="number" placeholder="Enter amount"/></td>
-                    <td><button>Remove</button></td>
-                </tr>
-                <tr>
-                    <td>Test File 2</td>
-                    <td>2345</td>
-                    <td>45</td>
-                    <td><input type="number" placeholder="Enter amount"/></td>
-                    <td><button>Remove</button></td>
-                </tr>
+                {data?.balances.map((balance, i) => {
+                    return(
+                        <tr key={i}>
+                            <td>{balance.filename}</td>
+                            <td>{balance.balance}</td>
+                            <td>{balance.minimum}</td>
+                            <td><input type="number" step="0.01" min="0" placeholder="Custom amount"/></td>
+                            <td><button>Remove</button></td>
+                        </tr>
+                    );
+                })}
             </tbody>
         </table>
     );

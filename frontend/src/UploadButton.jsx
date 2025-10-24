@@ -1,6 +1,6 @@
 import { useState , useCallback} from 'react'
-import './Button.css'
 import {useDropzone} from 'react-dropzone'
+import './buttons.css'
 
 function UploadButton({setData}) {
   const onDrop = useCallback(async acceptedFiles => {
@@ -16,8 +16,8 @@ function UploadButton({setData}) {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accept: {"application/pdf": [".pdf"]}, multiple:true})
 
   return (
-    <div {...getRootProps()}>
-      <button>
+    <div {...getRootProps()} className="upload">
+      <button className="upButton">
         <input {...getInputProps()} />
         {
           isDragActive ?
