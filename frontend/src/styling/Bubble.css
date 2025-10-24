@@ -1,5 +1,12 @@
 .ResultBubble{
-    margin-top:20px;
-    border:3px solid black;
-    border-radius:20px;
+    margin-top: 1.5rem;
+  background-color: #e7f1ff;
+  border: 1px solid #0078d4;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  align-self: center;
+  font-weight: 500;
+  color: #004578;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

@@ -1,0 +1,77 @@
+/* Overall layout */
+.App {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f7fb; /* light blue-gray background */
+  color: #1a1a1a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Button row */
+.ButtonRow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ButtonRow button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ButtonRow button:hover {
+  background-color: #005a9e;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #0078d4; /* main blue */
+  color: white;
+  font-weight: 600;
+  text-align: left;
+}
+
+th {
+  padding: 1rem;
+  font-size: 1rem;
+  border-bottom: 2px solid #005a9e;
+}
+
+/* Table body */
+tbody tr {
+  background-color: #f9f9f9; /* light gray */
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f1f1; /* slightly darker gray for even rows */
+}
+
+tbody tr:hover {
+  background-color: #e7f1ff; /* soft blue highlight */
+}
+
+td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #ddd;
+}

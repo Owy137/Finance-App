@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './row.css'
 
 function Row({balance, index, changeSelection}){
 

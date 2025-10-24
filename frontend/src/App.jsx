@@ -5,6 +5,7 @@ import UploadButton from './UploadButton.jsx'
 import Delete from './Delete.jsx'
 import Bubble from './Bubble.jsx'
 import './styling/buttons.css'
+import './styling/app.css'
 
 function App(){
     const[data, setData] = useState(null);
