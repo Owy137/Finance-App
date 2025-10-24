@@ -12,7 +12,6 @@ function UploadButton({setData}) {
     const data = await res.json();
     
     setData(data);
-    console.log(data);
   }, []);
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accept: {"application/pdf": [".pdf"]}, multiple:true})
 

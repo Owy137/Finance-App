@@ -6,7 +6,7 @@ function Row({balance, index, changeSelection}){
 
     const onSelect = (amount) => {
         console.log("Row: ",index, amount);
-        changeSelection({index, amount});
+        changeSelection(index, amount);
     };
 
     return(

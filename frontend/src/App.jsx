@@ -13,9 +13,11 @@ function App(){
 
     const changeSelection = (index, amount) => {
         console.log("App: ",index, amount);
-        setSelections((prev) => ({ ...prev, [index]:amount}));
+        setSelections((prev) => ({ ...prev, [index]:amount,}));
     }
 
+
+    
     useEffect(() => {
         console.log(selections);
     }, [selections]);
