@@ -2,7 +2,7 @@ import { useState , useCallback} from 'react'
 import './Button.css'
 import {useDropzone} from 'react-dropzone'
 
-function MyDropzone() {
+function UploadButton({setData}) {
   const onDrop = useCallback(async acceptedFiles => {
     const formData = new FormData();
     acceptedFiles.forEach(acceptedFiles => {
@@ -11,7 +11,7 @@ function MyDropzone() {
     const res = await fetch("http://127.0.0.1:5000/process", {method: "POST", body: formData});
     const data = await res.json();
     
-    console.log(data);
+    setData(data);
   }, []);
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accept: {"application/pdf": [".pdf"]}, multiple:true})
 
@@ -29,4 +29,4 @@ function MyDropzone() {
   )
 }
 
-export default MyDropzone
+export default UploadButton
