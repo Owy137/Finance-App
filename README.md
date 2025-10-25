@@ -7,12 +7,12 @@ Uses Python to scrape and React-Native for user interface
 This setup assumes user has python and node package manager(npm) installed
 
 ### Installation
-Install the source code into local machine
-The OCR library requires a pdf coversion which can be installed from https://github.com/oschwartz10612/poppler-windows/releases/
-After installing poppler using above link and unzipping, copy the directory path to the bin folder
-Create a file called "config.py" under the backend folder from the source code
-Enter "path = " and then paste the path to the variable
-Ensure that the path is wrapped in quotation marks
+Install the source code into local machine </br>
+The OCR library requires a pdf coversion which can be installed from https://github.com/oschwartz10612/poppler-windows/releases/</br>
+After installing poppler using above link and unzipping, copy the directory path to the bin folder</br>
+Create a file called "config.py" under the backend folder from the source code</br>
+Enter "path = " and then paste the path to the variable</br>
+Ensure that the path is wrapped in quotation marks</br>
 
 ### Running Server
 Open a terminal in the main project folder
