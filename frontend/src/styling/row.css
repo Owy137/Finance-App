@@ -1,0 +1,9 @@
+input[type="radio"] {
+  appearance: auto;         /* restores native browser style */
+  -webkit-appearance: radio; /* for Safari */
+  width: 1rem;
+  height: 1rem;
+  accent-color: #0078d4;    /* blue highlight for modern browsers */
+  margin: 0.25rem 0.5rem;
+  vertical-align: middle;
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './row.css'
+import './styling/row.css'
 
-function Row({balance, index, changeSelection}){
+function Row({balance, index, changeSelection, setData ,data}){
 
     const [custAmount, setCustAmount] = useState({});
 
@@ -10,8 +10,14 @@ function Row({balance, index, changeSelection}){
         changeSelection(index, amount);
     };
 
+    const removeData = () => {
+        console.log("Deleting index ", index);
+        const newData = {...data.delete(index)};
+        setData(newData);
+    }
+
     return(
-        <tr id={index}>
+        <tr>
             <td>{balance.filename}</td>
             <td>{balance.balance}<button type="radio" onClick={() => onSelect(balance.balance)}/></td>
             <td>{balance.minimum}<button type="radio" onClick={() => onSelect(balance.minimum)}/></td>
@@ -19,7 +25,7 @@ function Row({balance, index, changeSelection}){
                 <input type="number" step="0.01" min="0" placeholder="Custom amount" onChange={(e) => setCustAmount(e.target.value)}/>
                 <button type="radio" onClick={() => onSelect(custAmount)}/>
             </td>
-            <td><button>Remove</button></td>
+            <td><button onClick={() => removeData}>Delete based on index</button></td>
         </tr>
     );
 }

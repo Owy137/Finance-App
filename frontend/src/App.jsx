@@ -46,7 +46,9 @@ function App(){
                         return <Row 
                             balance={balance} 
                             index={index}
-                            changeSelection={changeSelection}/>;
+                            changeSelection={changeSelection}
+                            setData={setData}
+                            data={data}/>;
                         })}
                 </tbody>
             </table>
