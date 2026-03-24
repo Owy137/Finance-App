@@ -2,7 +2,6 @@ from rapidocr import RapidOCR
 from pdf2image import convert_from_path
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import config
 import re
 import os
 
@@ -43,11 +42,10 @@ def process_file():
     engine = RapidOCR()
     subdir = "./statements/"
     balanceCheck = ("newbalance", "closingbalance")
-    poppler_path_bin = config.path
 
     #converts a pdf into a jpg and reads
     def read_pdf(filepath):
-        images = convert_from_path(filepath, dpi=300, poppler_path=poppler_path_bin)
+        images = convert_from_path(filepath, dpi=300, poppler_path=r".\poppler\Release-25.12.0-0\poppler-25.12.0\Library\bin")
         img = images[0]
         img.save(f"{filepath.strip('pdf')}png", "PNG")
         return engine(filepath.replace(".pdf", ".png"))
