@@ -66,29 +66,57 @@ def process_file():
         #Reads text in file
         for i in range(len(result.txts)):
             temp = result.txts[i].replace(" ", "").lower()
+            #print(temp)
             if any(sub in temp for sub in balanceCheck):
                 #Balance is in same string
                 if any(charac.isdigit() for charac in temp):
                     balance = float(re.search(r"\d*\.\d*", temp.replace(",", "")).group())
-                    print(balance)
+                    print("Balance:", balance)
                     res.update({"filename":filename, "balance":balance})
                 #Balance is on different string
                 else:
                     balance = float(re.search(r"\d*\.\d*", result.txts[i+1].replace(",", "")).group())
-                    print(balance)
+                    print("Balance:", balance)
                     res.update({"filename":filename, "balance":balance})
             #Check for minimum payments, follows same format as balance, just looking for different string
             if ("minimum" in temp):
                 #Minimum is in same string
                 if any(charac.isdigit() for charac in temp):
                     minpay = float(re.search(r"\d*\.\d*", temp.replace(",", "")).group())
-                    print(minpay)
+                    print("Minimum payment:", minpay)
                     res["minimum"] = minpay
                 #Minimum is on different string
                 else:
                     minpay = float(re.search(r"\d*\.\d*", result.txts[i+1].replace(",", "")).group())
-                    print(minpay)
+                    print("Minimum payment:", minpay)
                     res["minimum"] = minpay
+            if ("duedate" in temp):
+                # Match both YYYY/MM/DD and MM/DD/YYYY formats
+                match = re.search(r"(\d{4}/\d{2}/\d{2}|\d{2}/\d{2}/\d{4})", temp)
+                if match:
+                    due_str = match.group()
+                    parts = due_str.split('/')
+                    # If YYYY/MM/DD convert to MM/DD/YYYY
+                    if len(parts[0]) == 4:
+                        due = f"{parts[1]}/{parts[2]}/{parts[0]}"
+                    else:
+                        due = due_str  # Already in MM/DD/YYYY format
+                    print("Due date:", due)
+                    res["due"] = due
+            else:
+                # Try to match date in next line if not in current
+                match = re.search(r"(\d{4}/\d{2}/\d{2}|\d{2}/\d{2}/\d{4})", result.txts[i+1])
+                if match:
+                    due_str = match.group()
+                    parts = due_str.split('/')
+                    # If YYYY/MM/DD convert to MM/DD/YYYY
+                    if len(parts[0]) == 4:
+                        due = f"{parts[1]}/{parts[2]}/{parts[0]}"
+                    else:
+                        due = due_str  # Already in MM/DD/YYYY format
+                    print("Due date:", due)
+                    res["due"] = due
+
         
         return res
 

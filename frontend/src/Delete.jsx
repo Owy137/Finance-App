@@ -1,5 +1,3 @@
-import './styling/buttons.css'
-
 function Delete ({setData}){
 
     const deleteData = async() =>{
@@ -14,8 +12,13 @@ function Delete ({setData}){
     }
 
     return(
-        <div className="delete">
-            <button className="delButton" onClick={deleteData}>Clear</button>
+        <div className="ml-auto">
+            <button
+                className="px-5 py-2 rounded-xl bg-red-600 text-white font-semibold transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+                onClick={deleteData}
+            >
+                Clear
+            </button>
         </div>
     );
 }
